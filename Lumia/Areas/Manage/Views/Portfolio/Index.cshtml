@@ -1,0 +1,50 @@
+﻿@model List<Portfolio>
+@{
+    int counter = 0;
+}
+<div class="container">
+    <div class="d-flex " style="justify-content:space-around">
+        <h1 class="text-danger">Portfolio</h1>
+        <div><a class="btn btn-success" asp-action="create" asp-controller="portfolio">Create</a></div>
+    </div>
+
+    <table class="table">
+  <thead>
+            <tr>
+                 <th scope="col">Number</th>
+                 <th scope="col">Id</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Client</th>
+                 <th scope="col">Title</th>
+                 <th scope="col">Desc</th>
+                <th scope="col">Image</th>
+                <th scope="col">Redirecte</th>
+
+                 <th>Action</th>
+            </tr>
+  </thead>
+  <tbody>
+    @foreach (Portfolio portfolio in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">0</th>
+                <td>@portfolio.Id</td>
+                <td>@portfolio.Name</td>
+                <td>@portfolio.Client</td>
+                <td>@portfolio.Title</td>
+                <td>@portfolio.Desc</td>
+                    <td>@portfolio.ImageUrl</td>
+                    <td>@portfolio.RedirecteUrl</td>
+
+                <td>
+                    <a class="btn btn-primary" asp-action="edit"asp-controller="portfolio">Edit</a>
+                    <a class="btn btn-danger" asp-action="delete" asp-controller="portfolio">Delete</a>
+                </td>
+
+            </tr>
+        }
+    
+  </tbody>
+</table>
+</div>
